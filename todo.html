@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/project.js"></script>
+    <style>
+        body{
+            background-color: deepskyblue;
+            padding: 20px;
+        }
+        .sin:hover{
+            border:white 2px solid;
+            transition: 0.3s;
+            
+        }
+        .con1{
+            width: 400px;
+            height:auto;
+            background-color: royalblue;
+            padding: 20px;
+            color:deepskyblue;
+            
+        }
+        .con1 h1{
+            margin:0;
+            text-align: center;
+            color:deepskyblue;
+        }
+        .tit{
+            background-image: linear-gradient(white,whitesmoke);
+            padding:10px;
+            font-size:15px;
+            list-style: none;
+            cursor: pointer;
+        }
+        .det{
+            background-image: linear-gradient(white,whitesmoke);
+            padding:10px;
+            color:black;
+            font-size:15px;
+            list-style: none;
+            cursor: pointer;
+        }
+        
+        .sin{
+            width:220px;
+            border: none;
+            background-color: transparent;
+            border-bottom: 2px solid skyblue;
+            padding:9px;
+        }
+    .ton{
+        border: none;
+        background-color: deepskyblue;
+        width:90px;
+        height:43px;
+        font-size: 18px;
+        color:white;
+        }
+                .nb{
+                    color:white;
+                }
+    </style>
+</head>
+<body ng-app="my_mod">
+    <div ng-controller="todo" class="con1">
+        <h1>Task list</h1>
+   
+        <form action="" class="nb">
+       <!--
+        Extra Details<input type="checkbox" ng-model="vb">
+Name: <input class="sin" type="text" placeholder="type task" ng-model="Task">
+        --> 
+        Title:<input class="sin" type="text" ng-model="nameH"><br>
+        Details: <input class="sin" type="text" ng-model="detailsH"><br>       
+        <input class="ton" type="button" ng-click="addtask(index)" value=submit> 
+        </form>
+        <ul ng-repeat="a in details_todo">
+        <li class="tit"> Title: {{a.task}}</li>
+         <li class="det"> Details: {{a.details}} 
+    <span ng-click="delete($index)" style="float:right;" > &times; </span>
+         </li>
+             </ul>      
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/angular.min.js" charset="utf-8"></script>
+    <script src="js/project.js" charset="utf-8"></script>
+    <style>
+    body{
+        background-color: chocolate;
+    }
+    .s-ul{
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        display:inline-block;
+        width:340px;
+        padding-top:9px;
+        height:30px;
+        background-color: coral;
+        border:white 2px solid;
+        cursor: pointer;
+    }
+    .s-li{
+        color:white;
+        font-size: 20px;
+        padding-bottom:10px;
+        padding-right: 10px;
+    }
+    .s-li.active{
+        width:300px;
+        background-image: linear-gradient(white, greenyellow);
+        font-size:20px;
+        border-bottom: greenyellow 5px solid;
+        color:black;
+    }
+    .s-con{ 
+        margin-left:350px;
+        margin-top:30px;
+        background-color:whitesmoke;
+        padding:20px;
+        width:400px;
+        border-radius: 20px;
+    }
+    span{
+        float:right;
+    }
+    .view_p{
+        display: inline-block;
+        width:auto;
+        padding: 30px;
+        height:auto;
+        position: absolute;
+        top:0px;
+        margin: 50px;
+        color:white;
+        border:3px solid whitesmoke;
+        list-style:none;
+        font-size:20px;
+    }
+    </style>
+    <body ng-app="my_mod">
+        <div ng-controller="prod">
+        
+     <div class="s-con">
+            <center> <h3>Product list</h3> </center>
+       <ul class="s-ul" ng-repeat="n in products" style="list-style: none;">
+     
+        <li ng-click="addToList(n)" ng-class="{active:n.active}" class="s-li"> 
+        
+            <input type="checkbox" ng-model="name_edit" ng-class="active:n.active">
+            {{n.name}}</span>
+        
+            <span>{{n.price | currency : "₹ "}} <input type="checkbox" ng-model="p_view" ng-class="active:n.active"> </span> </li>
+          
+        <input type="text" placeholder="change the product" ng-model="n.name" ng-show="name_edit" ng-hide="{active:n.active}">
+
+        <input type="number" placeholder="change the amount" ng-model="n.price" ng-show="p_view" ng-hide="{active:n.active}">          
+            </ul>
+
+            <h3>total <span>{{total() | currency : "₹ "}} </span></h3>
+            </div>
+
+            <div class="view_p">
+                <h4>your selected item</h4>
+            <ul ng-repeat="P in products" ng-show="name_edit" ng-class="{active:P.active}" style="list-style: none;">
+                    <li>{{n.name}}</li> 
+            </ul>
+                   Total Price {{total()}}
+            </div>
+        </div>
+        <a href="" class=""></a>
+     </body>
+</html>
